@@ -1,0 +1,131 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #f8fafc;
+    color: #1e293b;
+}
+
+/* Heading */
+h1 {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 2.3rem;
+    font-weight: 600;
+    color: #1e293b;
+}
+
+.subtitle {
+    text-align: center;
+    color: #64748b;
+    margin-bottom: 20px;
+}
+
+/* Layout */
+.container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Notebook style boxes */
+textarea, #output {
+    width: 40%;
+    height: 350px;
+    padding: 18px;
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+    background: repeating-linear-gradient(
+        white,
+        white 28px,
+        #e2e8f0 29px
+    );
+    font-size: 15px;
+    line-height: 28px;
+    font-family: 'Courier New', monospace;
+    overflow-y: auto;
+}
+
+/* Controls */
+.controls {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px;
+}
+
+/* Buttons */
+button {
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    background: #2563eb;
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    background: #1d4ed8;
+}
+
+/* Dropdown */
+select {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #cbd5f5;
+}
+
+/* THEMES */
+
+/* 🌙 Dark Notebook */
+body.dark {
+    background: #0f172a;
+    color: #e2e8f0;
+}
+
+body.dark textarea,
+body.dark #output {
+    background: repeating-linear-gradient(
+        #020617,
+        #020617 28px,
+        #1e293b 29px
+    );
+    color: white;
+    border: 1px solid #334155;
+}
+
+/* 🌸 Soft Pastel */
+body.pastel {
+    background: #fdf2f8;
+}
+
+body.pastel textarea,
+body.pastel #output {
+    background: repeating-linear-gradient(
+        #fff1f2,
+        #fff1f2 28px,
+        #fecdd3 29px
+    );
+}
+/* Floating Theme Button */
+.theme-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    background: #2563eb;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: 0.2s ease;
+}
+
+.theme-btn:hover {
+    transform: scale(1.1);
+}
