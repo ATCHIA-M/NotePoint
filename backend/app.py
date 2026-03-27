@@ -8,9 +8,14 @@ CORS(app)
 
 def clean_notes(text, mode="normal"):
     text = text.lower()
-    sentences = re.split(r'[.?!]', text)
+
+    # Better sentence splitting
+    sentences = re.split(r'[.?!,\n]', text)
 
     cleaned = ""
+
+    # Common useless words to ignore
+    stopwords = {"is", "the", "in", "of", "and", "to", "a", "for", "on"}
 
     for s in sentences:
         s = s.strip()
@@ -19,15 +24,26 @@ def clean_notes(text, mode="normal"):
 
         words = s.split()
 
+        # 📝 NORMAL MODE (clean + readable)
         if mode == "normal":
             cleaned += f"✦ {s.capitalize()}<br>"
 
+        # 📚 EXAM MODE (SMART KEYWORDS)
         elif mode == "exam":
-            keywords = words[:5]
-            cleaned += f"📌 {' | '.join(keywords).capitalize()}<br>"
+            keywords = [w for w in words if w not in stopwords]
+            keywords = keywords[:5]
 
+            if keywords:
+                cleaned += f"📌 {' | '.join(keywords).capitalize()}<br>"
+
+        # ✨ FUN MODE (structured + styled)
         elif mode == "fun":
-            cleaned += f"✨ • {s.capitalize()}<br>"
+            if len(words) > 4:
+                title = " ".join(words[:2]).capitalize()
+                rest = " ".join(words[2:])
+                cleaned += f"🌟 <b>{title}</b><br>➤ {rest.capitalize()}<br><br>"
+            else:
+                cleaned += f"✨ {s.capitalize()}<br>"
 
     return cleaned
 
