@@ -51,6 +51,10 @@ def clean():
 
     return jsonify({"cleaned": result})
 
+@app.route("/")
+def home():
+    return "Note Cleaner AI is running 🚀"
+
 
 # 🚀 Run app (Render compatible)
 if __name__ == "__main__":
