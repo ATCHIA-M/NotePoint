@@ -3,9 +3,9 @@ async function cleanNotes() {
     const text = document.getElementById("inputText").value;
     const mode = document.getElementById("mode").value;
 
-    console.log("Button clicked"); // ✅ debug
+    console.log("Button clicked");
 
-    const response = await fetch("fetch("https://NotePoint.onrender.com/clean", {", {
+    const response = await fetch("https://notepoint.onrender.com/clean", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -13,10 +13,10 @@ async function cleanNotes() {
         body: JSON.stringify({ text: text, mode: mode })
     });
 
-    console.log("Response:", response); // ✅ debug
+    console.log("Response:", response);
 
     const data = await response.json();
-    console.log("Data:", data); // ✅ debug
+    console.log("Data:", data);
 
     document.getElementById("output").innerHTML = data.cleaned;
 }
