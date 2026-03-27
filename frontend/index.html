@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Note Cleaner AI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<p class="subtitle">Turn messy notes into clean, structured notes</p>
+
+<div style="text-align:center; margin-bottom:15px;">
+</div>
+<body>
+<button class="theme-btn" onclick="toggleTheme()">🎨</button>
+<h1>Note Cleaner AI</h1>
+<p style="text-align:center; color:#94a3b8; margin-top:-10px;">
+    Turn messy notes into clean, structured summaries
+</p>
+
+<div class="container">
+
+    <!-- INPUT -->
+    <textarea id="inputText" placeholder="Paste messy notes here..."></textarea>
+
+    <!-- CONTROLS -->
+    <div class="controls">
+
+    <select id="mode">
+        <option value="normal">📝 Normal</option>
+        <option value="exam">📚 Exam</option>
+        <option value="fun">✨ Fun</option>
+    </select>
+
+    <button onclick="cleanNotes()">Clean Notes</button>
+    <button onclick="copyText()">Copy Output</button>
+
+</div>
+
+    <!-- OUTPUT -->
+    <div id="output">Cleaned notes will appear here...</div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
