@@ -10,8 +10,8 @@ CORS(app)
 def clean_notes(text, mode="normal"):
     text = text.lower()
 
-    # Split text into sentences/phrases
-    sentences = re.split(r'[.?!,]', text)
+    # Split sentences
+    sentences = re.split(r'[.?!]', text)
 
     cleaned = ""
 
@@ -26,16 +26,14 @@ def clean_notes(text, mode="normal"):
         if mode == "normal":
             cleaned += f"✦ {s.capitalize()}<br>"
 
-        # 📚 EXAM MODE
+        # 📚 EXAM MODE (THIS IS THE IMPORTANT FIX)
         elif mode == "exam":
             keywords = words[:5]
-            cleaned += f"📌 {' '.join(keywords).capitalize()}<br>"
+            cleaned += f"📌 {' | '.join(keywords).capitalize()}<br>"
 
         # ✨ FUN MODE
         elif mode == "fun":
-            title = words[0].capitalize() if words else ""
-            rest = " ".join(words[1:])
-            cleaned += f"🌟 <b>{title}</b>: {rest} 🚀<br>"
+            cleaned += f"✨ • {s.capitalize()}<br>"
 
     return cleaned
 
